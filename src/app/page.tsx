@@ -1,65 +1,250 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+  const technologies = [
+    {
+      id: "typescript",
+      name: "TypeScript",
+      description: "型安全性を持つJavaScriptのスーパーセット。大規模なアプリケーション開発に最適です。",
+      color: "from-blue-500 to-blue-700",
+      icon: "TS",
+    },
+    {
+      id: "react",
+      name: "React",
+      description: "ユーザーインターフェース構築のためのJavaScriptライブラリ。コンポーネントベースの開発が可能です。",
+      color: "from-cyan-500 to-blue-600",
+      icon: "⚛️",
+    },
+    {
+      id: "vue",
+      name: "Vue.js",
+      description: "プログレッシブなJavaScriptフレームワーク。段階的に採用できる柔軟性が特徴です。",
+      color: "from-green-500 to-emerald-600",
+      icon: "Vue",
+    },
+  ];
+
+  const certifications = [
+    {
+      name: "基本情報技術者",
+      category: "国家資格",
+      level: "初級",
+    },
+    {
+      name: "応用情報技術者",
+      category: "国家資格",
+      level: "中級",
+    },
+    {
+      name: "AWS認定資格",
+      category: "ベンダー資格",
+      level: "初級〜上級",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      {/* Header */}
+      <header className="border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/80">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white font-bold text-lg">
+                SB
+              </div>
+              <span className="text-xl font-bold text-slate-900 dark:text-white">
+                SkillBoost
+              </span>
+            </div>
+            <nav className="hidden md:flex items-center gap-6">
+              <Link
+                href="#technologies"
+                className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              >
+                学習コンテンツ
+              </Link>
+              <Link
+                href="#certifications"
+                className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              >
+                資格紹介
+              </Link>
+              <Link
+                href="#about"
+                className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              >
+                について
+              </Link>
+            </nav>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/login"
+                className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              >
+                ログイン
+              </Link>
+              <Link
+                href="/signup"
+                className="rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-lg"
+              >
+                会員登録
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl">
+            IT資格学習で
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              スキルアップ
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+            TypeScript、React、Vue.jsなどの最新技術を学びながら、
+            <br />
+            IT資格の取得を目指すプラットフォームです。
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <Link
+              href="#technologies"
+              className="rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              学習を始める
+            </Link>
+            <Link
+              href="#certifications"
+              className="rounded-lg border-2 border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
             >
-              Learning
-            </a>{" "}
-            center.
+              資格を見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies Section */}
+      <section id="technologies" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            学習できる技術
+          </h2>
+          <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
+            最新のフロントエンド技術を体系的に学べます
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="grid gap-8 md:grid-cols-3">
+          {technologies.map((tech) => (
+            <Link
+              key={tech.id}
+              href={`/learn/${tech.id}`}
+              className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg transition-all hover:scale-105 hover:shadow-2xl dark:bg-slate-800"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 transition-opacity group-hover:opacity-10`} />
+              <div className="relative">
+                <div className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br ${tech.color} text-white text-2xl font-bold shadow-lg`}>
+                  {tech.icon}
+                </div>
+                <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">
+                  {tech.name}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300">
+                  {tech.description}
+                </p>
+                <div className="mt-6 flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400">
+                  学習を始める
+                  <svg
+                    className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="bg-slate-100 dark:bg-slate-800/50">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              人気のIT資格
+            </h2>
+            <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
+              取得を目指せる資格を紹介します
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {certifications.map((cert, index) => (
+              <div
+                key={index}
+                className="rounded-xl bg-white p-6 shadow-md transition-all hover:shadow-lg dark:bg-slate-700"
+              >
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                    {cert.category}
+                  </span>
+                  <span className="rounded-full bg-purple-100 px-3 py-1 text-xs font-semibold text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+                    {cert.level}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  {cert.name}
+                </h3>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  詳細を見る →
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-12 text-center text-white">
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            SkillBoostについて
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg opacity-90">
+            IT資格の取得を目指す方のための学習プラットフォームです。
+            <br />
+            実践的な技術を学びながら、資格取得に必要な知識を身につけられます。
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="mb-4 flex items-center justify-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white font-bold">
+                SB
+              </div>
+              <span className="text-lg font-bold text-slate-900 dark:text-white">
+                SkillBoost
+              </span>
+            </div>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              © 2024 SkillBoost. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
